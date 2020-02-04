@@ -6,6 +6,8 @@ import {MessageSent} from '../actions';
 
 class MessageInput extends React.Component{
 
+	state={newMessage:''};
+
 	onSubmit =(e) =>{
 		e.preventDefault()
 		// alert('submitted');
@@ -13,12 +15,24 @@ class MessageInput extends React.Component{
 		this.props.MessageSent({message:"jello"})
 	}
 
+	onInputChange = (e) => {
+		this.setState({
+			newMessage:e.target.value
+		})
+
+		console.log('state', this.state)
+	}
+
 	render(){
 		return(
 			<div className="ui form">
 			<form onSubmit={this.onSubmit}>
 				<label>Type your message here:</label>
-				<input className="ui input">
+				<input
+				 className="ui input"
+				 value={this.state.newMessage}
+				 onChange={this.onInputChange}
+				 >
 				</input>
 			</form>
 			</div>
