@@ -21,4 +21,12 @@ module.exports = (app) => {
         console.log("message", result)
         res.send("ok message added");
     })
+
+
+    app.post('/getMessages', async (req, res) => {
+    	let result = await Message.find(
+    		{},
+    		
+    		)
+    })
 }
